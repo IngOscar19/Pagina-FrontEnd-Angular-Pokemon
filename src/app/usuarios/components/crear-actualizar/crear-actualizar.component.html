@@ -1,0 +1,59 @@
+<h1>{{ID === undefined?'Crear un usuario' : 'Modificar un usuario'}}</h1>
+<hr>
+<div class="row">
+    <div class="col">
+        <form [formGroup]="CrearActualizarFormulario" (ngSubmit)="Guardar()">
+            <div class="form-group row mb-3">
+                <label for="name" class="col-form-label">
+                    <ng-container *ngIf="isValid('name')">
+                        <span class="text-danger">*</span>
+                    </ng-container>
+                    Nombre
+                </label>
+                <div>
+                    <input id="name" type="text" formControlName="name" class="form-control" [ngClass]="{'is-invalid': isValid('name')}">
+                    <div *ngIf="f['name'].errors && f['name'].touched" class="form-text text-danger">
+                        <div *ngIf="f['name']?.errors?.['required']">El nombre es obligatorio</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3" *ngIf="ID == undefined">
+                <label for="email" class="col-form-label">
+                    <ng-container *ngIf="isValid('email')">
+                        <span class="text-danger">*</span>
+                    </ng-container>
+                    Correo Electrónico
+                </label>
+                <div>
+                    <input id="email" type="email" formControlName="email" class="form-control" [ngClass]="{'is-invalid': isValid('email')}">
+                    <div *ngIf="f['email'].errors && f['email'].touched" class="form-text text-danger">
+                        <div *ngIf="f['email']?.errors?.['required'] || f['email']?.errors?.['email']">El correo debe electrónico ser válido</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3" *ngIf="ID == undefined">
+                <label for="password" class="col-form-label">
+                    <ng-container *ngIf="isValid('password')">
+                        <span class="text-danger">*</span>
+                    </ng-container>
+                    Contraseña
+                </label>
+                <div>
+                    <input id="password" type="password" formControlName="password" class="form-control" [ngClass]="{'is-invalid': isValid('password')}">
+                    <div *ngIf="f['password'].errors && f['password'].touched" class="form-text text-danger">
+                        <div *ngIf="f['password']?.errors?.['required']">La contraseña es obligatoria</div>
+                        <div *ngIf="f['password']?.errors?.['minlength']">La contraseña debe tener al menos 8 caracteres</div>
+                        <div *ngIf="f['password']?.errors?.['maxlength']">La contraseña debe tener como máximo 20 caracteres</div>
+                        <div *ngIf="f['password']?.errors?.['pattern']">La contraseña debe contener una letra mayúscula, una letra minúscula, un número y un carácter especial</div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary" >{{ID === undefined?'Registrar' : 'Modificar'}}</button>
+            </div>
+        </form>
+    </div>
+</div>

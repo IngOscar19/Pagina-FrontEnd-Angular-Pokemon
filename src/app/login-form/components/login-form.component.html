@@ -1,0 +1,47 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card border-0 shadow-sm fall-animation  ">
+    <div class="card-body border border-light-subtle p-2 shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="--bs-border-opacity: .5; ">
+      <div class="text-center mb-4 animate_animated animate_fadeInDown">
+        <img src="https://pokexamen.bananasoft.mx/assets/poke-ball.png" class="img-fluid" style="max-width: 200px;">
+      </div>
+
+      <h1 class="text-center mb-4"></h1>
+
+      <form [formGroup]="LoginFormulario" (ngSubmit)="onLoggedin()">
+        <div class="form-group row mb-3">
+          <label for="email" class="col-form-label">
+            <ng-container *ngIf="isValid('email')">
+              <span class="text-danger">*</span>
+            </ng-container>
+            Email
+          </label>
+          <div>
+            <input id="email" type="email" formControlName="email" class="form-control" [ngClass]="{'is-invalid': isValid('email')}">
+            <div *ngIf="f['email'].errors && f['email'].touched" class="form-text text-danger">
+              <div *ngIf="f['email']?.errors?.['required'] || f['email']?.errors?.['email']">El email debe electrónico ser válido</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row mb-3">
+          <label for="password" class="col-form-label">
+            <ng-container *ngIf="isValid('password')">
+              <span class="text-danger">*</span>
+            </ng-container>
+            Password
+          </label>
+          <div>
+            <input id="password" type="password" formControlName="password" class="form-control" [ngClass]="{'is-invalid': isValid('password')}">
+            <div *ngIf="f['password'].errors && f['password'].touched" class="form-text text-danger">
+              <div *ngIf="f['password']?.errors?.['required']">La contraseña es obligatoria</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

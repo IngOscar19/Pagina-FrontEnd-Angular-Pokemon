@@ -1,0 +1,10 @@
+<ul class="list-group">
+    <li class="list-group-item activate" aria-current="true">Datos usuarios</li>
+    <li class="list-group-item">Nombre: <b>{{Datos?.name}}</b></li>
+    <li class="list-group-item">Correo: <b>{{Datos?.email}}</b></li>
+    <li class="list-group-item">Fecha Creacion: <b>{{Datos?.created_at}}</b></li>
+    <li class="list-group-item">Ultima actualizacion: <b>{{Datos?.updated_at}}</b></li>
+    <div>
+        <button type="submit" class="btn btn-warning" [routerLink]="['/actualizar', ID]">Editar</button>
+    </div>
+</ul>

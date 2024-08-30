@@ -1,0 +1,30 @@
+<table class="table">
+<thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Fecha Creación</th>
+        <th scope="col">Acción</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let item of Datos">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.created_at | date: 'medium'}}</td>
+        <td>
+            <button type="button" class="btn btn-info" [routerLink]="['/ver', item.id]">Ver</button>
+            <button type="button" class="btn btn-danger" (click)="EliminarRegistro(item.id)">Eliminar</button>
+        </td>
+    </tr>
+</tbody>
+</table>
+
+
+<p-paginator 
+    (onPageChange)="onPageChange($event)" 
+    [rows]="rows" 
+    [totalRecords]="total" 
+    [rowsPerPageOptions]="[5, 10, 15]" />

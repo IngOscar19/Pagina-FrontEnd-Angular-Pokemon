@@ -1,0 +1,64 @@
+<div class="container">
+    <ng-container *ngIf="!Datos">
+        <div class="card position-relative overflow-hidden">
+            <div class="position-absolute w-100 h-110">
+                <div class="rounded-circle w-100 ratio ratio-1x1 top-0 start-50 translate-middle placeholder" style="transform: scale(1.5); height: 300px; width: 250px; margin-top: 15px"></div>
+                <p class="position-absolute top-0 end-0 m-4 rounded-pill p-2 bg-white placeholder" style="height: 80px; width: 80px;"></p>
+            </div>
+            <div class="z-3 justify-content-center align-items-center d-flex flex-column">
+                <div class="p-5">
+                    <div class="card-img-top placeholder" style="height: 200px; width: 100%;"></div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title fs-1 placeholder" style="height: 24px; width: 200px;"></h5>
+                    <p class="w-50 text-light m-auto rounded-pill text-center fs-6 placeholder" style="height: 20px; width: 100px;"></p>
+                    <div class="d-flex justify-content-center gap-4">
+                        <p class="card-text text-center d-flex flex-column fs-6">
+                            <b class="fs-2 placeholder" style="height: 24px; width: 60px;"></b>
+                            Defensa
+                        </p>
+                        <p class="card-text text-center d-flex flex-column fs-6">
+                            <b class="fs-2 placeholder" style="height: 24px; width: 60px;"></b>
+                            Ataque
+                        </p>
+                        <p class="card-text text-center d-flex flex-column fs-6">
+                            <b class="fs-2 placeholder" style="height: 24px; width: 60px;"></b>
+                            Rapidez
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <!-- card con los datos -->
+    <ng-container *ngIf="Datos">
+        <div class="card position-relative overflow-hidden">
+            <div class="position-absolute w-100 h-100">
+                <div class="rounded-circle w-100 ratio ratio-1x1 top-0 start-50 translate-middle {{Datos?.tipo}}" style="transform: scale(1.5)"></div>
+                <p class="position-absolute top-0 end-0 m-4 rounded-pill p-2 bg-white">HP <b>{{Datos?.hp}}</b></p>
+            </div>
+            <div class="z-3 justify-content-center align-items-center d-flex flex-column">
+                <div class="p-5"><img [src]="Datos?.url_imagen" class="card-img-top" alt="Imagen del Pokémon"></div>
+                <div class="card-body">
+                    <h5 class="card-title fs-1"><b>{{Datos?.nombre}}</b></h5>
+                    <p class="w-50 text-light m-auto rounded-pill text-center fs-6 {{Datos?.tipo}}"><b>{{Datos?.tipo}}</b></p>
+                    <div class="d-flex justify-content-center gap-4">
+                        <p class="card-text text-center d-flex flex-column fs-6">
+                            <b class="fs-2">{{Datos?.defensa}}</b>
+                            Defensa
+                        </p>
+                        <p class="card-text text-center d-flex flex-column fs-6">
+                            <b class="fs-2">{{Datos?.ataque}}</b>
+                            Ataque
+                        </p>
+                        <p class="card-text text-center d-flex flex-column fs-6">
+                            <b class="fs-2">{{Datos?.rapidez}}</b>
+                            Rapidez
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

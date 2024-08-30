@@ -1,0 +1,16 @@
+.custom-card {
+  background-color: #f8f9fa; 
+  border-radius: 10px; 
+  border: none; 
+  border: 1px solid #6666;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+@media (max-width: 700px) {
+  .btn-responsive {
+      width: 100%;
+  }
+}

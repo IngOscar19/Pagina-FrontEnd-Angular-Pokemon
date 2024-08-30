@@ -1,0 +1,22 @@
+<nav class="navbar container-fluid">
+  <a class="navbar-brand" [routerLink]="['/vistapokemones']">
+    <img src="https://pokexamen.bananasoft.mx/assets/pokemon.png" alt="Pokemon logo">
+  </a>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/login']">Cerrar la sesión</a>
+    </li>
+  </ul>
+</nav>
+
+
+
+<nav class="card-header d-flex justify-content-between align-items-center" *ngIf="mostrarEliminarEditar">
+  <div class="badge rounded-pill text-bg-secondary" *ngIf="item">Creado por: {{ nombreUsuario }}</div>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end ng-star-inserted">
+    <button class="btn btn-danger me-md-2" *ngIf="item" (click)="eliminarPokemon()">Eliminar</button>
+    <button type="submit" class="btn btn-primary" *ngIf="item" [routerLink]="['/actualizarpokemones', item.id]">Editar</button>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

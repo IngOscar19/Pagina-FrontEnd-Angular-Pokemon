@@ -1,0 +1,121 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/primeng/11.0.0/themes/lara-light-blue/theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/primeng/11.0.0/primeng.css">
+</head>
+<body>
+
+<form [formGroup]="CrearActualizarFormulario" (ngSubmit)="Guardar()" class="container">
+    <div class="form-row">
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" formControlName="nombre" class="form-control" required>
+            <div *ngIf="f['nombre'].errors && f['nombre'].touched" class="text-danger">
+                <div *ngIf="f['nombre']?.errors?.['required']">El nombre es obligatorio</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tipo">Tipo</label>
+            <p-dropdown [options]="tipos" formControlName="tipo" required>
+                <ng-template let-option pTemplate="selectedItem">
+                    <span [ngClass]="option.value" class="rounded-pill p-2">{{option.label}}</span>
+                </ng-template>
+                <ng-template let-option pTemplate="item">
+                    <span [ngClass]="option.value" class="rounded-pill p-2">{{option.label}}</span>
+                </ng-template>
+            </p-dropdown>
+            <div *ngIf="f['tipo'].errors && f['tipo'].touched" class="text-danger">
+                <div *ngIf="f['tipo']?.errors?.['required']">El tipo es obligatorio</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group full-width">
+            <label for="url_imagen">URL Imagen</label>
+            <input id="url_imagen" type="text" formControlName="url_imagen" class="form-control" required>
+            <div *ngIf="f['url_imagen'].errors && f['url_imagen'].touched" class="text-danger">
+                <div *ngIf="f['url_imagen']?.errors?.['required']">El URL de la imagen es obligatorio</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="hp">HP</label>
+            <input id="hp" type="number" formControlName="hp" class="form-control" required min="1" max="999">
+            <div *ngIf="f['hp'].errors && f['hp'].touched" class="text-danger">
+                <div *ngIf="f['hp']?.errors?.['required']">El HP es obligatorio</div>
+                <div *ngIf="f['hp']?.errors?.['min']">El HP debe ser al menos 1</div>
+                <div *ngIf="f['hp']?.errors?.['max']">El HP no puede ser mayor que 999</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="defensa">Defensa</label>
+            <input id="defensa" type="number" formControlName="defensa" class="form-control" required min="1" max="999">
+            <div *ngIf="f['defensa'].errors && f['defensa'].touched" class="text-danger">
+                <div *ngIf="f['defensa']?.errors?.['required']">La defensa es obligatoria</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ataque">Ataque</label>
+            <input id="ataque" type="number" formControlName="ataque" class="form-control" required min="1" max="999">
+            <div *ngIf="f['ataque'].errors && f['ataque'].touched" class="text-danger">
+                <div *ngIf="f['ataque']?.errors?.['required']">El ataque es obligatorio</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="rapidez">Rapidez</label>
+            <input id="rapidez" type="number" formControlName="rapidez" class="form-control" required min="1" max="999">
+            <div *ngIf="f['rapidez'].errors && f['rapidez'].touched" class="text-danger">
+                <div *ngIf="f['rapidez']?.errors?.['required']">La rapidez es obligatoria</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <button type="submit">Guardar</button>
+    </div>
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/primeng/11.0.0/primeng.umd.js"></script>
+<script>
+    const app = angular.module('myApp', ['primeng.dropdown']);
+    app.controller('myController', function($scope) {
+        $scope.tipos = [
+            { label: 'Bicho', value: 'Bicho' },
+            { label: 'Dragón', value: 'Dragón' },
+            { label: 'Eléctrico', value: 'Eléctrico' },
+            { label: 'Hada', value: 'Hada' },
+            { label: 'Lucha', value: 'Lucha' },
+            { label: 'Fuego', value: 'Fuego' },
+            { label: 'Volador', value: 'Volador' },
+            { label: 'Planta', value: 'Planta' },
+            { label: 'Tierra', value: 'Tierra' },
+            { label: 'Fantasma', value: 'Fantasma' },
+            { label: 'Hielo', value: 'Hielo' },
+            { label: 'Normal', value: 'Normal' },
+            { label: 'Veneno', value: 'Veneno' },
+            { label: 'Psíquico', value: 'Psíquico' },
+            { label: 'Roca', value: 'Roca' },
+            { label: 'Agua', value: 'Agua' }
+        ];
+
+        $scope.CrearActualizarFormulario = {
+            nombre: '',
+            tipo: '',
+            url_imagen: '',
+            hp: 0,
+            defensa: 0,
+            ataque: 0,
+            rapidez: 0
+        };
+
+        $scope.Guardar = function() {
+            console.log($scope.CrearActualizarFormulario);
+        };
+    });
+</script>
+
+</body>
