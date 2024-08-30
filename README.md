@@ -1,27 +1,21 @@
-# SegundoProyecto
+# Pokemones FrontEnd
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+# Proyecto Angular - Frontend para Guardar Pokémon
 
-## Development server
+Este proyecto es un frontend desarrollado en Angular que permite a los usuarios guardar, actualizar, eliminar y visualizar información sobre Pokémon. La aplicación interactúa con un backend (API) desarrollado en Laravel conectado a una base de Datos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Características
 
-## Code scaffolding
+- **Gestión de Pokémon**: Permite a los usuarios crear, actualizar, eliminar y listar Pokémon.
+- **Autenticación de Usuarios**: Implementa autenticación de usuarios para garantizar que solo usuarios autorizados puedan modificar o eliminar Pokémon.
+- **Interfaz de Usuario**: Utiliza  Boostrap y PrimeNG para ofrecer una interfaz moderna y receptiva.
+- **Pipe Personalizado**: Utiliza Moment.js para tener un pipe personalizado sobre fecha de actualizacion.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Requisitos
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- **Node.js** y **NPM**
+- **Angular CLI**
+- **Backend Laravel**
+- **Boostrap 5.3**
+- **Prime NG**
+- **Moment.js**
