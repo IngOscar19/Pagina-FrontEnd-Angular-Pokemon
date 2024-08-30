@@ -26,7 +26,7 @@ export class NavbarPokemonesComponent implements OnInit {
 
       this.mostrarCrear = url !== '/createpokemones';
 
-      const ver = /^\/verpokemones\/(\d+)$/.exec(url);
+      const ver = /^\/verpokemon\/(\d+)$/.exec(url);
       const editar = /^\/actualizarpokemones\/(\d+)$/.exec(url);
       if (ver) {
         this.mostrarEliminarEditar = true;
